@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.jira.utility</groupId>
+    <artifactId>IssueDownloadUtility</artifactId>
+    <version>1.0.0</version>
+
+    <organization>
+        <name>Developer - Majo Francis</name>
+        <url>http://www.example.com/</url>
+    </organization>
+
+    <name>IssueDownloadUtility</name>
+    <description>This is the com.jira.utility:IssueDownloadUtility plugin for Atlassian JIRA.</description>
+
+
+    <dependencies>
+        
+    <dependency>
+	<groupId>org.apache.poi</groupId>
+	<artifactId>poi</artifactId>
+	<version>4.1.0</version>
+	</dependency>
+	
+	<dependency>
+	<groupId>org.apache.poi</groupId>
+	<artifactId>poi-ooxml</artifactId>
+	<version>4.1.0</version>
+	</dependency>
+	
+
+	 <dependency>
+	    <groupId>xalan</groupId>
+	    <artifactId>xalan</artifactId>
+	    <version>2.7.2</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>xerces</groupId>
+	    <artifactId>xercesImpl</artifactId>
+	    <version>2.11.0</version>
+	</dependency>
+	        
+	<dependency>
+	    <groupId>org.swinglabs.swingx</groupId>
+	    <artifactId>swingx-core</artifactId>
+	    <version>1.6.5-1</version>
+	</dependency>
+	        
+
+
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>jsr311-api</artifactId>
+            <version>1.1.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+		    <groupId>org.json</groupId>
+		    <artifactId>json</artifactId>
+		    <version>20200518</version>
+		</dependency>
+    </dependencies>
+    
+
+
+    <build>
+        <plugins>
+
+	      <plugin>
+	        <groupId>org.apache.maven.plugins</groupId>
+	        <artifactId>maven-jar-plugin</artifactId>
+	        <version>3.1.0</version>
+	        <configuration>
+	          <archive>
+	            <manifest>
+	              <addClasspath>true</addClasspath>
+	              <mainClass>com.jira.utility.api.MainClass</mainClass>
+	            </manifest>
+	              <manifestEntries>
+	                    <Class-Path>.</Class-Path>
+	                </manifestEntries>
+	          </archive>
+	        </configuration>
+	      </plugin>
+
+        </plugins>
+        
+
+    </build>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
+</project>
