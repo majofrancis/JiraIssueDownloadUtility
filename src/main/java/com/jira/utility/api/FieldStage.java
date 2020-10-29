@@ -531,35 +531,24 @@ public class FieldStage extends Stage {
 						while (keysSubfields.hasNext()) {
 							keysSubfields.next();
 
+						
 							if (keysfield.equals("status")) {
 								subFieldValue = objectissueSubfields.get("name").toString();
 								break;
 							} else if (keysfield.equals("resolution")) {
 								subFieldValue = objectissueSubfields.get("name").toString();
 								break;
-							} else if (keysfield.equals("customfield_18900")) {  // Code Base
-								subFieldValue = objectissueSubfields.get("formatted").toString();
-								break;
-							} else if (keysfield.equals("customfield_18901")) {  // Project_Name
-								subFieldValue = objectissueSubfields.get("value").toString();
-								break;
-							} else if (keysfield.equals("customfield_11134")) {		// Quality Impact
-								subFieldValue = objectissueSubfields.get("value").toString();
-								break;
 							} else if (keysfield.equals("assignee")) {
 								subFieldValue = objectissueSubfields.get("name").toString();
-								break;
-							} else if (keysfield.equals("customfield_11145")) {		// Severity
-								subFieldValue = objectissueSubfields.get("value").toString();
 								break;
 							} else if (keysfield.equals("reporter")) {
 								subFieldValue = objectissueSubfields.get("name").toString();
 								break;
-							} else if (keysfield.equals("customfield_11135")) {		// Quality Dimension
-								subFieldValue = objectissueSubfields.get("value").toString();
+							} else if (keysfield.equals("issuetype")) {
+								subFieldValue = objectissueSubfields.get("name").toString();
 								break;
-							} else if (keysfield.equals("customfield_11137")) {		// Reproducible
-								subFieldValue = objectissueSubfields.get("value").toString();
+							} else if (keysfield.equals("project")) {
+								subFieldValue = objectissueSubfields.get("key").toString();  // change 'key' to 'name' for Project name 
 								break;
 							} else if (keysfield.equals("progress")) {
 								subFieldValue = objectissueSubfields.get("progress").toString();
@@ -567,15 +556,40 @@ public class FieldStage extends Stage {
 							} else if (keysfield.equals("votes")) {
 								subFieldValue = objectissueSubfields.get("votes").toString();
 								break;
-							} else if (keysfield.equals("issuetype")) {
+							} else if (keysfield.equals("watches")) {
+								subFieldValue = objectissueSubfields.get("watchCount").toString();
+								break;
+							} else if (keysfield.equals("priority")) {
 								subFieldValue = objectissueSubfields.get("name").toString();
 								break;
-							} else if (keysfield.equals("project")) {
-								subFieldValue = objectissueSubfields.get("key").toString();  // key or name ??
+							} else if (keysfield.equals("creator")) {
+								subFieldValue = objectissueSubfields.get("name").toString();
+								break;
+							} else if (keysfield.equals("aggregateprogress")) {
+								subFieldValue = objectissueSubfields.get("progress").toString();
 								break;
 							}
 							
-							else if (keysfield.equals("customfield_11116")) {		// Found Area/Sub Area
+							/* The code handles Text fields/ Number fields etc. However you have to define new 'else if' blocks as shown below for 'Select List' / 'CheckBox' / 'Cascading Select' and Other special type of custom fields depending on your JIRA instance. 
+							Please take help from your developer.
+							
+							I am working on a solution to avoid this Hard Coding.
+							 */
+							
+							else if (keysfield.equals("customfield_xxxx1")) {		// Checkboxes
+								subFieldValue = objectissueSubfields.get("value").toString();
+								break;
+							} else if (keysfield.equals("customfield_xxxx2")) {		// Select List Field
+								subFieldValue = objectissueSubfields.get("value").toString();
+								break;
+							} else if (keysfield.equals("customfield_xxxx3")) {  // Profields List Custom Field
+								subFieldValue = objectissueSubfields.get("formatted").toString();
+								break;
+							} else if (keysfield.equals("customfield_xxxx4")) {  // Profields Text Custom Field
+								subFieldValue = objectissueSubfields.get("value").toString();
+								break;
+							} 
+							else if (keysfield.equals("customfield_xxxx5")) {		// Cascading Select Type Field
 
 								subFieldValue = objectissueSubfields.get("value").toString();
 								
@@ -587,48 +601,9 @@ public class FieldStage extends Stage {
 								}
 								
 								break;
-							} 					
-							else if (keysfield.equals("customfield_14509")) {		// Risk
-								subFieldValue = objectissueSubfields.get("value").toString();
-								break;
-							} else if (keysfield.equals("watches")) {
-								subFieldValue = objectissueSubfields.get("watchCount").toString();
-								break;
-							} else if (keysfield.equals("customfield_11108")) {		// Defect Type
-								subFieldValue = objectissueSubfields.get("value").toString();
-								break;
-							} else if (keysfield.equals("priority")) {
-								subFieldValue = objectissueSubfields.get("name").toString();
-								break;
-							} else if (keysfield.equals("creator")) {
-								subFieldValue = objectissueSubfields.get("name").toString();
-								break;
-							} else if (keysfield.equals("aggregateprogress")) {
-								subFieldValue = objectissueSubfields.get("progress").toString();
-								break;
-							} else if (keysfield.equals("customfield_18700")) {		// Device Type
-								subFieldValue = objectissueSubfields.get("value").toString();
-								break;
-							} else if (keysfield.equals("customfield_14441")) {		// Language Translations
-								subFieldValue = objectissueSubfields.get("value").toString();
-								break;
-							} else if (keysfield.equals("customfield_14321")) {		// Currency-Global
-								subFieldValue = objectissueSubfields.get("value").toString();
-								break;
-							} else if (keysfield.equals("customfield_11604")) {		// Proposed Resolution
-								subFieldValue = objectissueSubfields.get("value").toString();
-								break;
-							} else if (keysfield.equals("customfield_18800")) { // Automated Tests
-								subFieldValue = objectissueSubfields.get("value").toString();
-								break;
-							} else if (keysfield.equals("customfield_17301")) { // Main Component
-								subFieldValue = objectissueSubfields.get("value").toString();
-								break;
-							} else if (keysfield.equals("customfield_15900")) { // Regression
-								subFieldValue = objectissueSubfields.get("value").toString();
-								break;
-							} else {
-								
+							}  
+							
+							else {								
 								subFieldValue = issueFieldsObject.get(keysfield).toString()
 										.replace(System.getProperty("line.separator"), "");
 							}
