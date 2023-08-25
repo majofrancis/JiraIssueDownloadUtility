@@ -7,4 +7,4 @@ Please read the 'How to Guide' to know how to use the Utility.
 
 You are welcome to go through the code and make tweaks as per your organisational needs.
 
-The Developer shall NOT be responsible for any issues which may arise out of using this Product.
+The Developer shall NOT be responsible for any issues which may arise out of using this Product...
